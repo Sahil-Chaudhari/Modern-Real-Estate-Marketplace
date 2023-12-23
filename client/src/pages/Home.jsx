@@ -45,7 +45,7 @@ export default function Home() {
     };
     fetchOfferListings();
   }, []);
-console.log(offerListings)
+
   return (
     <div>
       {/* top */}
@@ -68,26 +68,36 @@ console.log(offerListings)
           Let's get started...
         </Link>
       </div>
+      <div>
+        {/* {swiper } */}
+        {
+          <Swiper navigation>
+            {offerListings &&
+              offerListings.length > 0 &&
+              offerListings.map((listing, index2) => (<>
+                {listing.imageUrls.map((k,index) => (
+                    <SwiperSlide key={index2}>
+                    <div
+                      style={{
+                        background: `url("${k}") center no-repeat`,
+                        backgroundSize: "contain",
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      className="h-[500px]"
+                      key={index}
+                    ></div>
+                </SwiperSlide>
+                  ))}
+                  </>
+              ))}
+          </Swiper>
+        }
+      </div>
 
-      {/* swiper */}
-      {/* <Swiper navigation>
-        {offerListings &&
-          offerListings.length > 0 &&
-          offerListings.map((listing) => (
-            <SwiperSlide key={listing._id}>
-              <div
-                style={{
-                  background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                  backgroundSize: "cover",
-                }}
-                className="h-[500px]"
-                key={listing._id}
-              ></div>
-            </SwiperSlide>
-          ))}
-      </Swiper> */}
-
-      {/* listing results for offer, sale and rent */}
+      {/* /* {-listing results for offer, sale and rent }*/}
 
       <div className="max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10">
         {offerListings && offerListings.length > 0 && (
