@@ -69,7 +69,7 @@ export default function Home() {
         </Link>
       </div>
       <div>
-        {/* {swiper } */}
+        { /*swiper */ }
         {
           <Swiper navigation>
             {offerListings &&
@@ -114,8 +114,8 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex flex-wrap gap-4">
-              {offerListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
+              {offerListings.map((listing,key) => (
+                <ListingItem listing={listing} key={key} />
               ))}
             </div>
           </div>
@@ -134,8 +134,8 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex flex-wrap gap-4">
-              {rentListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
+              {rentListings.map((listing,key) => (
+                <ListingItem listing={listing} key={key} />
               ))}
             </div>
           </div>
@@ -154,8 +154,8 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex flex-wrap gap-4">
-              {saleListings.map((listing) => (
-                <ListingItem listing={listing} key={listing._id} />
+              {saleListings.map((listing,key) => (
+                <ListingItem listing={listing} key={key} />
               ))}
             </div>
           </div>
